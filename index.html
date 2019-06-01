@@ -1,0 +1,12 @@
+<html>
+   <body>
+     <p>How many questions do you want?</p>
+      <form method = "POST">
+         <input name="num" />
+         <input type = "submit" value = "submit" />
+      </form>
+      {% for line in lines %}
+      <p>{{ line }}</p>
+      {% endfor %}
+   </body>
+</html>
