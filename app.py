@@ -15,7 +15,6 @@ app = Flask(__name__, static_folder="static", static_url_path='/static')
 
 with open("static/english-1.txt") as f:
 	lines = f.readlines()
-	shuffle(lines)
 	for line in lines:
 		line.decode('utf-8')
 		question, rightAnswer = line.strip().split("\t")
@@ -23,6 +22,7 @@ with open("static/english-1.txt") as f:
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+	shuffle(lines)
 	return render_template('index.html', lines=lines, question=question, rightAnswer=rightAnswer)
 
 
